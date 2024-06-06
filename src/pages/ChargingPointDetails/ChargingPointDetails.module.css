@@ -1,0 +1,96 @@
+.wrapperContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative; 
+}
+
+.backButton {
+  position: absolute; 
+  top: 20px; 
+  left: 20px; 
+  display: flex;
+  align-items: center;
+}
+
+.backText {
+  display: none;
+  margin-left: 10px;
+}
+
+.chargingPointDetails {
+  max-width: 600px;
+  padding: 50px 30px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.establishmentName {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.info {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.infoBox {
+  background-color: #ffffff;
+  border: 0.7px solid #eeeeee;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 35px 40px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.infoBox p:first-child {
+  margin: 0;
+  font-size: 14px;
+  color: #999;
+}
+
+.green {
+  color: #28a745;
+}
+
+.red {
+  color: #dc3545;
+}
+
+.editButton {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  min-width: auto;
+  padding: 15px 90px;
+  font-size: 16px;
+  cursor: pointer;
+  
+  position: absolute;
+  bottom: 80px;
+  left: 50%; 
+  transform: translateX(-50%);
+}
+
+.editButton:hover {
+  background-color: #0056b3;
+}
+
+@media (min-width: 768px) {
+  .backText {
+    display: inline;
+  }
+}
