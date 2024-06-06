@@ -1,0 +1,23 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .home-content {
+    text-align: center;
+  }
+  
+  .title {
+    color: inherit;
+    text-align: center;
+    padding: 5px 20px;
+  }
+  
+  .estab-paragraph {
+    font-size: 14px;
+    color: #595959;
+  }
