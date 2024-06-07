@@ -1,0 +1,38 @@
+.chargingPoint {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+.chargingPointIcon img {
+  width: 80px;
+  height: 80px;
+}
+
+.chargingPointInfo {
+  flex-grow: 1;
+  margin-left: 1rem;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.status.green {
+  color: green;
+}
+
+.status.red {
+  color: red;
+}
+
+.chargingPointArrow {
+  font-size: 1.5rem;
+  color: #666;
+}
