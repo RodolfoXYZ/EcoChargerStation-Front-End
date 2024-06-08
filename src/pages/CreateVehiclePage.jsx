@@ -47,7 +47,9 @@ const CreateVehiclePage = () => {
       }}
       onClick={async ()=>{
         await AddVehicle(vehicle);
-        navigation("/allVehicles");
+        navigation("/CreateVehicleSuccessPage", {
+          state: vehicle
+        });
       }}
       >Confirmar</button>
     </div>

@@ -51,20 +51,35 @@ export async function getAllVehicleById(){
     return result.data;
 }
 
-export async function deleteVehicleById(id){
+export async function getAllRecharges(){
 
+    const c = JSON.parse(localStorage.getItem("key"));
+
+    const result = await instance.get(`/recharge/all/${c.id}`)
+    return result.data;
+}
+
+export async function deleteVehicleById(id){
+    try{
     const result = await instance.delete(`/vehicle/delete/${id}`)
-    console.log(result)
+    console.log(result, result.status)
+    return result.status === 200 ? true : false;
+    }
+    catch(e){
+        console.log(e)
+        return false;
+    }
 }
 
 
-export async function GerarCobranca(pointId, value){
+export async function GerarCobranca(pointId, value, vehicleId){
     
     const c = JSON.parse(localStorage.getItem("key"));
     const result = await instance.post(`/payment/qrcode`, {
         clientId: c.id,
         pointId,
-        value
+        value,
+        vehicleId
     })
     console.log(result)
     return result.data;

@@ -3,7 +3,7 @@ import {useLocation, useNavigate} from "react-router-dom"
 import VehicleInfo from '../components/VehicleInfo/VehicleInfo';
 import './../styles/DeleteVehicleSuccessPage.css';
 
-const DeleteVehicleSuccessPage = () => {
+const DeleteVehicleFailed = () => {
   const params = useLocation();
   const navigate = useNavigate();
 
@@ -17,9 +17,10 @@ const DeleteVehicleSuccessPage = () => {
   return (
     <div className="delete-success-page">
       <VehicleInfo vehicle={params.state} /> {/* Passar o objeto vehicle como prop */}
-      <p className="delete-success-message">DELETADO COM SUCESSO!</p>
+      <p className="delete-failed-message">HOUVE UM ERRO AO TENTAR DELETAR SEU VEICULO!</p>
+      <p className="delete-failed-message">VERIFIQUE SE ELE NAO POSSUE RECARGAS PENDENTES</p>
     </div>
   );
 };
 
-export default DeleteVehicleSuccessPage;
+export default DeleteVehicleFailed;

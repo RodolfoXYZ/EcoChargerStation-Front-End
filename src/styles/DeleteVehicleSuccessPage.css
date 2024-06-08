@@ -6,10 +6,16 @@
     height: 100vh;
     text-align: center;
   }
-  
-  .delete-success-message {
+
+.delete-failed-message{
+  color: red;
+}
+.delete-success-message{
+  color: #0154FA;
+}
+
+  .delete-success-message, .delete-failed-message {
     font-size: 15px;
     font-weight: bold;
-    color: #0154FA;
   }
   

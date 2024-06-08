@@ -12,7 +12,7 @@ const SideBarPage = () => {
       <hr className="divider" />
       <div onClick={()=> navigation("/allVehicles")} className="sidebar-item">MEUS VEÍCULOS</div>
       <hr className="divider" />
-      <div className="sidebar-item">MINHAS RECARGAS</div>
+      <div onClick={()=> navigation("/availablecharges")} className="sidebar-item">MINHAS RECARGAS</div>
       <hr className="divider" />
       <div className="sidebar-item">HISTÓRICO DE RECARGAS</div>
       <hr className="divider" />

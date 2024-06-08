@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import VehicleInfo from '../components/VehicleInfo/VehicleInfo';
 import './../styles/CreateVehicleSuccessPage.css';
+import { useLocation, useNavigation } from 'react-router-dom';
 
 const CreateVehicleSuccessPage = () => {
-  const vehicle = {
-    image: "./volvo.png", // Caminho da imagem (certifique-se de que está correto)
-    name: "VOLVO S90", // Corrigido para 'name'
-    id: "4H9Z8D7J",
-  };
+  const navigation = useNavigation();
+  useEffect(()=>{
+    setTimeout(()=> navigation("/allvehicles"),4000)
+  }, [])
 
+
+  const params = useLocation();
+  console.log(params)
   return (
     <div className="create-success-page">
-      <VehicleInfo vehicle={vehicle} /> {/* Passar o objeto vehicle como prop */}
+      <VehicleInfo vehicle={params.state} /> {/* Passar o objeto vehicle como prop */}
       <p className="create-success-message">VEÍCULO CADASTRADO COM SUCESSO!</p>
     </div>
   );

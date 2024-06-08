@@ -20,13 +20,14 @@ const ClientHome = () => {
       setPosition([position.coords.latitude, position.coords.longitude])
       setLoading(false);
       getAllVehicleById().then(result => setAllVehicles(result));
-
       GetAllPoints(position.coords.latitude, position.coords.longitude).then(result => {
         setStations(result)
         console.log(result)
       })
     })
   }, [])
+  useEffect(()=>
+    console.log(allVehicles), [allVehicles])
 
 
   const handleMarkerClick = (station) => {
@@ -104,11 +105,11 @@ const ClientHome = () => {
           <div className={styles.carSelection}>
           {allVehicles.map((car, index) => (
               <div onClick={()=>{
-                console.log(selectedStation)
                 navigation("/chooseYourMethod", {
                   state:{
                     value: selectedStation.price,
-                    stablishing_id: selectedStation.id
+                    stablishing_id: selectedStation.id,
+                    vehicle_id: car.vehicleId
                   }
                 })
               }} key={index} className="car-wrapper">

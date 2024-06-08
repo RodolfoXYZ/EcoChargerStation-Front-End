@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {useLocation,useNavigate} from "react-router-dom"
 import VehicleInfo from '../components/VehicleInfo/VehicleInfo';
 import './../styles/DeleteVehiclePage.css';
@@ -12,11 +12,16 @@ export default function DeleteVehiclePage(){
 
   
   function deleteVehicle(){
-    deleteVehicleById(params.state.id)
-    navigation("/DeleteVehicleSuccessPage", {state: params.state})
+    deleteVehicleById(params.state.id).then((result) => {
+      if(result) navigation("/DeleteVehicleSuccessPage", {state: params.state});
+      else navigation("/DeleteVehicleFailed", {state: params.state})
+    })
+    .catch(e =>{
+    })
   };
 
   function returnBeforePage(){
+    navigation("/allvehicles")
   };
 
   return (

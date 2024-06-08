@@ -11,7 +11,7 @@ const PixPaymentPage = () => {
   const [verify, setVerify] = useState("");
   useEffect(()=>{
     console.log(location)
-    GerarCobranca(location.state.stablishing_id, location.state.total).then((result)=>{
+    GerarCobranca(location.state.stablishing_id, location.state.total, location.state.vehicle_id).then((result)=>{
       console.log(result)
       setImage(`/QRCODE-id=${result}.png`);
       setVerify(result);
