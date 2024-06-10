@@ -21,6 +21,32 @@ export async function VerifyCredentials(email, password){
         return false;
     }
 }
+export async function CreatingClient(name, password, phone, email, userName, cpf){
+    const form = {
+        name: name,
+        password:password,
+        phone: phone,
+        email:email,
+        userName: userName,
+        cpf:cpf
+    }
+    const result = await instance.post("/user/createclient", form);
+    if(result.status === 200){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+export async function CreatingSupplier(name, password, phone, email, userName, cnpj){
+    const result = await instance.post("/user/createSupplier", {name, password, phone, email, userName, cnpj});
+    if(result.status === 200){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
 
 export async function GetAllPoints(lat, lon){
     const allPoints = await instance.get(`/point/get?lat=${lat}&lon=${lon}`)

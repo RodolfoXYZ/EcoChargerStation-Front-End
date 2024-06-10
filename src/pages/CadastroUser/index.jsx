@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './CadastroUser.css';
 import './../../components/Logo/Logo.css';
 import Logo from "./../../components/Logo";
 import InputMask from 'react-input-mask';
+import { CreatingClient } from '../../services/User';
+import { useNavigate } from 'react-router-dom';
 
 export default function CadastroUser() {
+
+    const navigate = useNavigate()
     const [formData, setFormData] = useState({
         fullName: '',
         username: '',
@@ -16,6 +20,15 @@ export default function CadastroUser() {
         cpf: '',
         cnpj: ''
     });
+
+
+
+    const [hasCreated, setHasCreated] = useState(false)
+
+
+    useEffect(()=>{
+        navigate("/")
+    }, [hasCreated])
 
     const [errors, setErrors] = useState({});
     const [hasBeTryToCreate, setHasBeTryToCreate] = useState(false)
@@ -65,14 +78,21 @@ export default function CadastroUser() {
         return newErrors;
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const newErrors = Validation();
         console.log(newErrors)
         setHasBeTryToCreate(true)
         if (Object.keys(newErrors).length === 0) {
-            console.log("AQUI FOI, PORRA!")
+
+            if(formData.userType === "cliente"){
+                const res = await CreatingClient(formData.fullName, formData.password, formData.phone, formData.email, formData.username, formData.cpf)
+                setHasCreated(true);
+            }
+            else{
+                CreatingSupplier(formData)
+            }
         }
-    };
+    }
 
     return (
         <section className='containerGeral'>
