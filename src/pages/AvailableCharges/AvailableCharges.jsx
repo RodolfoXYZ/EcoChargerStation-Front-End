@@ -29,9 +29,15 @@ const AvailableCharges = () => {
             <div onClick={()=>{
               recharge.availability && navigator("/QrScannerPage")
             }} className="charge-item">
-              <div className="car-info">
-                <img src={vehiclesRegistereds.filter(x => x.model === recharge.model)[0].image} alt="Volvo S90" className="car-image" />
-                <h3 className="car-name">{recharge.model}</h3>
+              <div className="car-info" onClick={()=>{
+              recharge.availability && navigator("/QrScannerPage")
+            }}>
+                <img onClick={()=>{
+              recharge.availability && navigator("/QrScannerPage")
+            }} src={vehiclesRegistereds.filter(x => x.model === recharge.model)[0].image} alt="Volvo S90" className="car-image" />
+                <h3 onClick={()=>{
+              recharge.availability && navigator("/QrScannerPage")
+            }} className="car-name">{recharge.model}</h3>
               </div>
               <div className="charge-details">
                 <p className='payment'>{recharge.availability ? "Realizado pagamento" : "Ainda não foi realizado o pagamento"}</p>
