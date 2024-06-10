@@ -43,7 +43,7 @@ const AvailableCharges = () => {
                 <p className='payment'>{recharge.availability ? "Realizado pagamento" : "Ainda não foi realizado o pagamento"}</p>
                 <p>{recharge.name}</p>
                 <p>ID: <span>{recharge.id}</span></p>
-                <p>Recarga: <span>{(recharge.rechargeValue/recharge.quantityPerKw).toFixed(2)}kWh</span></p>
+                <p>Recarga: <span>{(recharge.rechargeValue * recharge.quantityPerKw).toFixed(2)}kWh</span></p>
                 <p>Total: <span>R$ {recharge.rechargeValue.toFixed(2)}</span></p>
               </div>
             </div>
