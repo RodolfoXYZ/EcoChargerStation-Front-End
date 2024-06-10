@@ -95,7 +95,6 @@ export default function CadastroUser() {
                 else {
                 setLoading(true);
                 const res = await CreatingSupplier(formData.fullName, formData.password, formData.phone, formData.email, formData.username, formData.cnpj)
-                
                 setLoading(false);
                 setHasCreated(res);
             }

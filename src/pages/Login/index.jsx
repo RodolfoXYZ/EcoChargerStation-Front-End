@@ -32,35 +32,49 @@ export default function Login (){
 
 
     async function handleLogin(){
+        setLoading(true);
+        try{
         const result = await VerifyCredentials(credentials.email, credentials.password)
+        setLoading(false);
         setState(result)
+        }
+        catch(e){
+            setLoading(false);
+        }
     }
     
 
     return (
-        <>
-        <section className="containerGeral">
-            
-        <img id='logo' src='./logo.png'></img>
-            <div className="formulario">
-                <h1>Bem-vindo ao <br/>
-                <span className="tituloGradient">EcoChargerStation</span></h1>
+        !loading ? (<>
+            <section className="containerGeral">
+                
+            <img id='logo' src='./logo.png'></img>
+                <div className="formulario">
+                    <h1>Bem-vindo ao <br/>
+                    <span className="tituloGradient">EcoChargerStation</span></h1>
+    
+                    <input onChange={({target})=>{setCredentials({...credentials, email: target.value})}} type="Email" placeholder="Insira seu E-mail"/>
+                    <input onChange={({target})=>{setCredentials({...credentials, password: target.value})}} type="Password" placeholder="Insira sua Senha"/>
+                    <h3>ESQUECI MINHA SENHA!</h3>
+                </div>
+    
+                <button className="botaoGenerico" onClick={handleLogin}> Entrar </button>
+                <span className="entrarCom"> Entrar com </span>
+    
+                <div className="botoes">
+                <button className="botaoEntrarCom"><img src="./instagram_icon.png" alt="Insta" /></button>
+                <button className="botaoEntrarCom"><img src="./google_icon.png" alt="Google" /></button>
+                <button className="botaoEntrarCom"><img src="./facebook_icon.png" alt="Facebook" /></button>
+                </div>
+                <h4>Ainda não possue uma conta? <span onClick={()=> navigation("register")} style={{color: "#0047FF", cursor: "pointer"}}>Registrar</span> </h4>
+            </section>
+            </>) :(
+                <div style={{display: 'flex', left: 0,right:0, top: 0, bottom: 0, position: 'absolute', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' 
+                }}>
+                <img className="loading" src="./loading.png" alt="" />
+                <span>Validando seus dados...</span>
+                </div>
+            )
 
-                <input onChange={({target})=>{setCredentials({...credentials, email: target.value})}} type="Email" placeholder="Insira seu E-mail"/>
-                <input onChange={({target})=>{setCredentials({...credentials, password: target.value})}} type="Password" placeholder="Insira sua Senha"/>
-                <h3>ESQUECI MINHA SENHA!</h3>
-            </div>
-
-            <button className="botaoGenerico" onClick={handleLogin}> Entrar </button>
-            <span className="entrarCom"> Entrar com </span>
-
-            <div className="botoes">
-            <button className="botaoEntrarCom"><img src="./instagram_icon.png" alt="Insta" /></button>
-            <button className="botaoEntrarCom"><img src="./google_icon.png" alt="Google" /></button>
-            <button className="botaoEntrarCom"><img src="./facebook_icon.png" alt="Facebook" /></button>
-            </div>
-            <h4>Ainda não possue uma conta? <span onClick={()=> navigation("register")} style={{color: "#0047FF", cursor: "pointer"}}>Registrar</span> </h4>
-        </section>
-        </>
     )
 }
