@@ -90,7 +90,7 @@ export default function CadastroUser() {
                 setLoading(true);
                 const res = await CreatingClient(formData.fullName, formData.password, formData.phone, formData.email, formData.username, formData.cpf)
                 setLoading(false);
-                setHasCreated(true);
+                setHasCreated(res);
             }
             else {
                 CreatingSupplier(formData)
