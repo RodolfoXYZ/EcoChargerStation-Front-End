@@ -14,7 +14,18 @@ select {
     width: 80%;
     max-width: fit-content;
 }
-
+.loading{
+    animation: animationLoading 1s linear infinite;
+  }
+  
+  @keyframes animationLoading {
+    0%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(359deg);
+    }
+  }
 p {
     font-size: 24px;
     font-weight: 300;

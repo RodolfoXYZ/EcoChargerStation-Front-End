@@ -24,10 +24,10 @@ export default function CadastroUser() {
 
 
     const [hasCreated, setHasCreated] = useState(false)
+    const [loading, setLoading] = useState(false);
 
-
-    useEffect(()=>{
-        if(hasCreated){
+    useEffect(() => {
+        if (hasCreated) {
             navigate("/")
         }
     }, [hasCreated])
@@ -57,7 +57,7 @@ export default function CadastroUser() {
     };
 
 
-    const Validation = () =>{
+    const Validation = () => {
         const newErrors = {};
 
         console.log(formData)
@@ -86,11 +86,13 @@ export default function CadastroUser() {
         setHasBeTryToCreate(true)
         if (Object.keys(newErrors).length === 0) {
 
-            if(formData.userType === "cliente"){
+            if (formData.userType === "cliente") {
+                setLoading(true);
                 const res = await CreatingClient(formData.fullName, formData.password, formData.phone, formData.email, formData.username, formData.cpf)
+                setLoading(false);
                 setHasCreated(true);
             }
-            else{
+            else {
                 CreatingSupplier(formData)
             }
         }
@@ -98,7 +100,9 @@ export default function CadastroUser() {
 
     return (
         <section className='containerGeral'>
-            <img id='logo' src='./logo.png'></img>
+            {
+                !loading ? (<>
+                <img id='logo' src='./logo.png'></img>
             <p className='tituloPrincipalCadastro'>
                 Crie sua Conta <br /> na <span className="tituloGradient">EcoChargerStation</span>
             </p>
@@ -203,16 +207,24 @@ export default function CadastroUser() {
                     )
                 }
 
-                                <button className='botaoGenerico' onClick={handleSubmit}> CADASTRAR-SE </button>
+                <button className='botaoGenerico' onClick={handleSubmit}> CADASTRAR-SE </button>
 
-                                <h4>Cadastrar-se com</h4>
+                <h4>Cadastrar-se com</h4>
 
-                                <div className="botoes">
-                                    <button className="botaoEntrarCom"><img src="./instagram_icon.png" alt="Insta" /></button>
-                                    <button className="botaoEntrarCom"><img src="./google_icon.png" alt="Google" /></button>
-                                    <button className="botaoEntrarCom"><img src="./facebook_icon.png" alt="Facebook" /></button>
-                                </div>
-                            </div>
+                <div className="botoes">
+                    <button className="botaoEntrarCom"><img src="./instagram_icon.png" alt="Insta" /></button>
+                    <button className="botaoEntrarCom"><img src="./google_icon.png" alt="Google" /></button>
+                    <button className="botaoEntrarCom"><img src="./facebook_icon.png" alt="Facebook" /></button>
+                </div>
+            </div>
+                </>): (
+                    <div style={{display: 'flex', top: 0, bottom: 0, position: 'absolute', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' 
+                    }}>
+                    <img className="loading" src="./loading.png" alt="" />
+                    <span>Validando seus dados...</span>
+                    </div>
+                )
+            }
         </section>
     );
 }
