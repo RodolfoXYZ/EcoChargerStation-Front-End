@@ -3,7 +3,7 @@ import './CadastroUser.css';
 import './../../components/Logo/Logo.css';
 import Logo from "./../../components/Logo";
 import InputMask from 'react-input-mask';
-import { CreatingClient } from '../../services/User';
+import { CreatingClient, CreatingSupplier } from '../../services/User';
 import { useNavigate } from 'react-router-dom';
 
 export default function CadastroUser() {
@@ -91,9 +91,13 @@ export default function CadastroUser() {
                 const res = await CreatingClient(formData.fullName, formData.password, formData.phone, formData.email, formData.username, formData.cpf)
                 setLoading(false);
                 setHasCreated(res);
-            }
-            else {
-                CreatingSupplier(formData)
+                }
+                else {
+                setLoading(true);
+                const res = await CreatingSupplier(formData.fullName, formData.password, formData.phone, formData.email, formData.username, formData.cnpj)
+                
+                setLoading(false);
+                setHasCreated(res);
             }
         }
     }

@@ -30,20 +30,41 @@ export async function CreatingClient(name, password, phone, email, userName, cpf
         userName: userName,
         cpf:cpf
     }
-    const result = await instance.post("/user/createclient", form);
+    try{
+        const result = await instance.post("/user/createclient", form);
+    
     if(result.status === 200){
         return true;
+        }
+        else{
+        return false;
     }
-    else{
+    }
+    catch(e){
+        alert(e.response.data.message)
         return false;
     }
 }
 export async function CreatingSupplier(name, password, phone, email, userName, cnpj){
-    const result = await instance.post("/user/createSupplier", {name, password, phone, email, userName, cnpj});
+    const form = {
+        name: name,
+        password:password,
+        phone: phone,
+        email:email,
+        userName: userName,
+        cnpj: cnpj
+    }
+    try{
+        const result = await instance.post("/user/createsupplier", form);
     if(result.status === 200){
         return true;
+        }
+        else{
+        return false;
     }
-    else{
+    }
+    catch(e){
+        alert(e.response.data.message)
         return false;
     }
 }
