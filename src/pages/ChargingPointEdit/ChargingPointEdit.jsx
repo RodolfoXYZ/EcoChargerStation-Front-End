@@ -18,13 +18,13 @@ function ChargingPointEdit() {
 
   return (
     <div className={styles.wrapperContent}>
-      <Link to="/" className={styles.backButton}>
+      <Link to="/EstablishmentRegistration" className={styles.backButton}>
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
         <span className={styles.backText}>Voltar</span>
       </Link>
       <div className={styles.chargingPointEdit}>
         <div className={styles.chargingPointIcon}>
-          <img src="./images/chargingPoint.svg" alt="Ponto de Recarga" width="100" height="100" />
+          <img src="./chargingPoint.svg" alt="Ponto de Recarga" width="100" height="100" />
         </div>
         <h2 className={styles.title}>Editar Ponto de Recarga</h2>
         <h3 className={styles.placeName}>Cafeteria Paço Alfândega</h3>

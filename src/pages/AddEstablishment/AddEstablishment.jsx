@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import './AddEstablishment.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const AddEstablishment = () => {
   const [name, setName] = useState('');
   const [address, setAddress] = useState('');
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +44,7 @@ const AddEstablishment = () => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <button type="submit" className="confirm-button">Confirmar</button>
+        <button type="submit" onClick={()=>{navigate("/EstablishmentRegistration")}} className="confirm-button">Confirmar</button>
       </form>
     </div>
   );

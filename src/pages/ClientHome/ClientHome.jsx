@@ -109,7 +109,8 @@ const ClientHome = () => {
                   state:{
                     value: selectedStation.price,
                     stablishing_id: selectedStation.id,
-                    vehicle_id: car.vehicleId
+                    vehicle_id: car.vehicleId,
+                    car_model: car.model,
                   }
                 })
               }} key={index} className="car-wrapper">
