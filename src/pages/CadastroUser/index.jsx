@@ -27,7 +27,9 @@ export default function CadastroUser() {
 
 
     useEffect(()=>{
-        navigate("/")
+        if(hasCreated){
+            navigate("/")
+        }
     }, [hasCreated])
 
     const [errors, setErrors] = useState({});
