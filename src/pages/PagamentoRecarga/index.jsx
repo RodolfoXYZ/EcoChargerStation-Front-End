@@ -6,6 +6,7 @@ import InputMask from 'react-input-mask';
 import { FaCreditCard } from 'react-icons/fa';
 import { FaPix } from 'react-icons/fa6';
 import { vehiclesRegistereds } from '../../services/User';
+import { width } from '@fortawesome/free-solid-svg-icons/fa0';
 
 export default function PagamentoRecarga() {
 
@@ -46,7 +47,7 @@ export default function PagamentoRecarga() {
   return (
     <section className='containerGeral'>
       <p>Carro escolhido:</p>
-      <img src={vehiclesRegistereds.filter(x => x.model === params.state.car_model)[0].image} alt="IMAGEM DO CARRO ESCOLHIDO" />
+      <img src={vehiclesRegistereds.filter(x => x.model === params.state.car_model)[0].image} style = {{width: "90%", maxWidth: 300}}  alt="IMAGEM DO CARRO ESCOLHIDO" />
       <p>{params.state.car_model}</p>
       <div className='recarga'>
         <p>Digite o valor da sua recarga:</p>
