@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 import './AddEstablishment.css';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { registerEstablishment } from '../../services/SupplierService';
 
 const AddEstablishment = () => {
-  const [name, setName] = useState('');
-  const [address, setAddress] = useState('');
-  const [price, setPrice] = useState('');
-  const [description, setDescription] = useState('');
+  const [nome, setNome] = useState('');
+  const [endereco, setEndereco] = useState('');
+  const [preco, setPreco] = useState('');
+  const [descricao, setDescricao] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const result = await (await fetch("https://viacep.com.br/ws/" + address + "/json/")).json();
-    console.log(result)
-  
+    try {
+      const sucesso = await registerEstablishment({ nome, endereco, preco, descricao });
+      if (sucesso) {
+        navigate('/EstablishmentRegistration');
+      } else {
+        alert('Erro ao registrar estabelecimento. Tente novamente.');
+      }
+    } catch (error) {
+      console.error('Erro ao registrar estabelecimento:', error);
+      alert('Erro ao registrar estabelecimento. Tente novamente.');
+    }
   };
 
   return (
@@ -25,26 +33,34 @@ const AddEstablishment = () => {
           <label>Nome do Estabelecimento</label>
           <input
             type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={nome}
+            onChange={(e) => setNome(e.target.value)}
           />
         </div>
         <div className="form-group">
           <label>Endereço</label>
           <input
             type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
+            value={endereco}
+            onChange={(e) => setEndereco(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Preço</label>
+          <input
+            type="text"
+            value={preco}
+            onChange={(e) => setPreco(e.target.value)}
           />
         </div>
         <div className="form-group">
           <label>Descrição</label>
           <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={descricao}
+            onChange={(e) => setDescricao(e.target.value)}
           />
         </div>
-        <button type="submit" onClick={()=>{navigate("/EstablishmentRegistration")}} className="confirm-button">Confirmar</button>
+        <button type="submit" className="confirm-button">Confirmar</button>
       </form>
     </div>
   );
