@@ -43,7 +43,6 @@ const AddEstablishment = () => {
             onChange={(e) => setDescription(e.target.value)}
           />
         </div>
-        <button type="submit" className="confirm-button">Confirmar</button>
         <button type="submit" onClick={()=>{navigate("/EstablishmentRegistration")}} className="confirm-button">Confirmar</button>
       </form>
     </div>
