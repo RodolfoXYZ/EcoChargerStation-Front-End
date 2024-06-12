@@ -18,7 +18,7 @@ function ChargingPointEdit() {
 
   return (
     <div className={styles.wrapperContent}>
-      <Link to="/EstablishmentRegistration" className={styles.backButton}>
+      <Link to="/detalhes-ponto-recarga" className={styles.backButton}>
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
         <span className={styles.backText}>Voltar</span>
       </Link>
@@ -49,7 +49,9 @@ function ChargingPointEdit() {
           <option value="unavailable">Indisponível</option>
         </select>
         <div className={styles.btnWrapper}>
+        <Link to="/detalhes-ponto-recarga">
           <button className={styles.updateButton} onClick={handleUpdateChargingPoint}>Atualizar</button>
+          </Link>
         </div>
       </div>
     </div>

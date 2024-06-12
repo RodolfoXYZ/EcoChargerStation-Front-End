@@ -105,7 +105,7 @@ export default function CadastroUser() {
         <section className='containerGeral'>
             {
                 !loading ? (<>
-                <img id='logo' src='./logo.png'></img>
+                <img id='logo' src='./LOGO.svg'></img>
             <p className='tituloPrincipalCadastro'>
                 Crie sua Conta <br /> na <span className="tituloGradient">EcoChargerStation</span>
             </p>

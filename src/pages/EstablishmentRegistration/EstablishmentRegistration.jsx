@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './index.css';
+import { faEdit, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function EstablishmentRegistration() {
   return (
     <div className="wrapper-container">
+      <Link to="/detalhes-ponto-recarga" className='backButton' >
+        <FontAwesomeIcon icon={faArrowLeft} size="lg" />
+        <span className="backText">Voltar</span>
+      </Link>
       <div className="establishment-registration">
         <div className="header-icon">
           <img src="./estabelecimento.svg" alt="Ponto de Recarga" width="100" height="100" />
@@ -39,24 +45,26 @@ function EstablishmentRegistration() {
               <span>&gt;</span>
             </div>
           </Link>
-          <Link to="/detalhes-ponto-recarga" className="charging-point">
-            <div className="charging-point-icon">
-              <img src="./chargingPoint.svg" alt="Ponto de Recarga" width="80" height="80" />
-            </div>
-            <div className="charging-point-info">
-              <p className="title">PONTO DE RECARGA</p>
-              <p>Conector Tipo 2 - IEC 62196</p>
-              <p>ID: 4H2987DJ</p>
-              <p className="status">DISPONÍVEL</p>
-            </div>
-            <div className="charging-point-arrow">
-              <span>&gt;</span>
-            </div>
-          </Link>
+          <div className='margin'>
+            <Link to="/detalhes-ponto-recarga" className="charging-point">
+              <div className="charging-point-icon">
+                <img src="./chargingPoint.svg" alt="Ponto de Recarga" width="80" height="80" />
+              </div>
+              <div className="charging-point-info">
+                <p className="title">PONTO DE RECARGA</p>
+                <p>Conector Tipo 2 - IEC 62196</p>
+                <p>ID: 4H2987DJ</p>
+                <p className="status">DISPONÍVEL</p>
+              </div>
+              <div className="charging-point-arrow">
+                <span>&gt;</span>
+              </div>
+            </Link>
+          </div>
         </div>
         <Link to="/cadastrar-ponto-de-recarga">
-          <button className="add-button-mobile">+</button>
-          <button className="add-button">Adicionar</button>
+         
+          <button className='botaoEstablish' >Adicionar</button>
         </Link>
       </div>
     </div>

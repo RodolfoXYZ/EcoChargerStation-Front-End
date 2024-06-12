@@ -7,12 +7,14 @@
 }
 
 .formulario{
+    width: 350px;
     gap: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
 
 .formulario input {
     border-radius: 16px;
@@ -24,6 +26,8 @@
 }
 
 .formulario h1{
+font-size: 34px;
+width: 100%;
 font-weight: 400;
 text-align: center;
 }

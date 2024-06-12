@@ -15,7 +15,7 @@ function ChargingPointDetails() {
 
   return (
     <div className={styles.wrapperContainer}>
-      <Link to="/" className={styles.backButton}> 
+      <Link to="/EstablishmentRegistration" className={styles.backButton}> 
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
         <span className={styles.backText}>Voltar</span>
       </Link>

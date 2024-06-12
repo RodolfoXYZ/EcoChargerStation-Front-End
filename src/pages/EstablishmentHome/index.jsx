@@ -12,10 +12,10 @@ const EstablishmentHome = () => {
   return (
     <div className="home-container">
       <div className="home-content">
-      <img src="./LOGO.svg" alt="Ponto de Recarga" width="100" height="100" />
+      <img src="./logo.png" alt="Ponto de Recarga"/>
         <h1 className='title'>Seja bem-vindo ao EcoChargerStation, fornecedor!</h1>
         <p className='estab-paragraph'>Comece adicionando o seu estabelecimento.</p>
-        <Button to="/add-estabelecimento" mobileText="+" desktopText="Adicionar" />
+        <Button to="/add-estabelecimento" mobileText="+" desktopText="+" />
       </div>
     </div>
   );

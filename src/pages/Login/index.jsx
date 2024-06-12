@@ -48,7 +48,7 @@ export default function Login (){
         !loading ? (<>
             <section className="containerGeral">
                 
-            <img id='logo' src='./logo.png'></img>
+            <img id='logo' src='./LOGO.svg'></img>
                 <div className="formulario">
                     <h1>Bem-vindo ao <br/>
                     <span className="tituloGradient">EcoChargerStation</span></h1>

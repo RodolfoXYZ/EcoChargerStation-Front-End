@@ -7,7 +7,7 @@ import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 function ChargingPointRegistration() {
   return (
     <div className={styles.wrapperContent}>
-      <Link to="/" className={styles.backButton}>
+      <Link to="/EstablishmentRegistration" className={styles.backButton}>
         <FontAwesomeIcon icon={faArrowLeft} size="lg" />
         <span className={styles.backText}>Voltar</span>
       </Link>
@@ -23,7 +23,9 @@ function ChargingPointRegistration() {
           <option value="type3">CONECTOR TIPO 3 - IEC 62196</option>
         </select>
         <div className={styles.btnWrapper}>
+        <Link to="/EstablishmentRegistration" >
           <button className={styles.registerButton}>CADASTRAR</button>
+          </Link>
         </div>
       </div>
     </div>
