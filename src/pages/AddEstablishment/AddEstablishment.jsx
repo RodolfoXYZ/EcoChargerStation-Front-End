@@ -18,6 +18,7 @@ const AddEstablishment = () => {
   };
   return (
     <div className="add-establishment-container">
+      <img src="./estabelecimento.svg" alt="Ponto de Recarga" width="100" height="100" />
       <form className="add-establishment-form" onSubmit={handleSubmit}>
         <h2>Cadastro de estabelecimento</h2>
         <div className="form-group">
